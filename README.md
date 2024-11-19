@@ -100,3 +100,13 @@ $ llmstxt gen https://dotenvx.com/sitemap.xml
   </details>
 
 &nbsp;
+
+## FAQ
+
+### Can you give me a real world example?
+
+I'm using it to generate [dotenvx.com/llms.txt](https://dotenvx.com/llms.txt) with the following command:
+
+```
+llmstxt gen https://dotenvx.com/sitemap.xml -ep "**/privacy**" -ep "**/terms**" -ep "**/blog/**" -ep "**/stats/**" -ep "**/support/**" -rt 's/\| dotenvx//' > llms.txt
+```
