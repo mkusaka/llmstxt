@@ -89,5 +89,14 @@ $ llmstxt gen https://dotenvx.com/sitemap.xml
   ```
 
   </details>
+* <details><summary>`gen --replace-title s/pattern/replacement/` - Replace string(s) from title</summary><br>
+
+  Use `--replace-title` to remove redundant text from your page titles. For example, dotenvx's titles all end with `| dotenvx`. I want to replace those with empty string.
+
+  ```sh
+  $ llmstxt gen https://dotenvx.com/sitemap.xml --replace-title 's/\| dotenvx//'
+  ```
+
+  </details>
 
 &nbsp;
