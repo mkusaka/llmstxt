@@ -2,9 +2,7 @@
 
 > convert `sitemap.xml` to `llms.txt`
 
-[![dotenvx](https://dotenvx.com/better-banner.png)](https://dotenvx.com)
-
-*generate `[llms.txt](https://dotenvx.com/llms.txt)`*–using your [`sitemap.xml`](https://dotenvx.com/sitemap.xml).
+*generate [`llms.txt`](https://dotenvx.com/llms.txt)*–using your [`sitemap.xml`](https://dotenvx.com/sitemap.xml).
 
 * generate from `${url}/sitemap.xml`
 * exclude/include url paths
