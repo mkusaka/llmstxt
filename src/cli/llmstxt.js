@@ -18,6 +18,7 @@ program.command('gen')
   .argument('[url]', 'sitemap url', 'https://dotenvx.com/sitemap.xml')
   .option('-ep, --exclude-path <excludePath...>', 'path(s) to exclude from generation (default: none)')
   .option('-ip, --include-path <includePath...>', 'path(s) to include from generation (default: all)')
+  .option('-rt, --replace-title <replaceTitle...>', 'replace string(s) from title (default: none)')
   .action(genAction)
 
 program.parse()

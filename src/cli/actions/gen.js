@@ -13,7 +13,6 @@ async function fetchHtml(url) {
     const rawHtml = await body.text()
     return rawHtml
   } catch (_error) {
-    // console.error(`Error fetching HTML for ${url}:`, error.message)
     return null
   }
 }
@@ -50,6 +49,29 @@ async function getDescription(html) {
   }
 }
 
+function parseSubstitutionCommand(command) {
+  const match = command.match(/^s\/(.*?)\/(.*?)\/([gimsuy]*)$/) // Capture optional flags
+
+  if (match) {
+    const pattern = match[1] // The pattern to search for
+    const replacement = match[2] // The replacement string
+    const flags = match[3] || '' // Extract flags (e.g., 'g', 'i')
+    return { pattern: new RegExp(pattern, flags), replacement }
+  } else {
+    throw new Error("Invalid substitution command format")
+  }
+}
+
+function substituteTitle(title, command) {
+  if (!command || command.length < 1 || !command.startsWith('s/')) {
+    return title
+  }
+
+  const { pattern, replacement } = parseSubstitutionCommand(command)
+
+  return title.replace(pattern, replacement)
+}
+
 async function gen (sitemapUrl) {
   const options = this.opts()
 
@@ -58,6 +80,9 @@ async function gen (sitemapUrl) {
   const includePaths = options.includePath || []
   const isExcluded = picomatch(excludePaths)
   const isIncluded = picomatch(includePaths, { ignore: excludePaths })
+
+  // replaceTitle logic
+  const replaceTitle = options.replaceTitle
 
   let lines = []
 
@@ -80,12 +105,17 @@ async function gen (sitemapUrl) {
         continue
       }
 
-      const title = await getTitle(html)
-
+      // title
+      let title = await getTitle(html)
       if (!title) {
         continue
       }
+      for (command of replaceTitle) {
+        title = substituteTitle(title, command)
+      }
+      title = title.trim()
 
+      // description
       const description = await getDescription(html)
 
       lines.push(`- [${title}](${url}): ${description}`)
