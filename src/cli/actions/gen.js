@@ -82,7 +82,7 @@ async function gen (sitemapUrl) {
   const isIncluded = picomatch(includePaths, { ignore: excludePaths })
 
   // replaceTitle logic
-  const replaceTitle = options.replaceTitle
+  const replaceTitle = options.replaceTitle || []
 
   let lines = []
 
