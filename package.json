@@ -1,6 +1,36 @@
 {
+  "version": "0.1.0",
+  "name": "llmstxt",
+  "description": "convert sitemap to llms.txt file",
+  "author": "@motdotla",
+  "keywords": [
+    "llms.txt",
+    "llms",
+    "txt"
+  ],
+  "homepage": "https://github.com/dotenvx/llmstxt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotenvx/llmstxt.git"
+  },
+  "license": "BSD-3-Clause",
+  "files": [
+    "src/**/*",
+    "CHANGELOG.md"
+  ],
+  "bin": {
+    "llmstxt": "./src/cli/llmstxt.js"
+  },
+  "scripts": {
+    "standard": "standard",
+    "standard:fix": "standard --fix",
+    "release": "standard-version"
+  },
+  "funding": "https://dotenvx.com",
   "dependencies": {
-    "commander": "^12.1.0",
-    "sitemapper": "^3.2.18"
+    "commander": "^11.1.0",
+    "sitemapper": "^3.2.18",
+    "turndown": "^7.2.0",
+    "undici": "^6.21.0"
   }
 }
