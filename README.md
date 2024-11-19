@@ -11,17 +11,21 @@
 
 ### Quickstart [![npm version](https://img.shields.io/npm/v/llmstxt.svg)](https://www.npmjs.com/package/llmstxt)
 
-Install it globally.
+Install globally.
 
 ```sh
 npm install llmstxt -g
 ```
 
-Use it as a cli to stdout.
+Use as a cli.
 
 ```sh
 $ llmstxt gen https://dotenvx.com/sitemap.xml
+```
 
+Output looks like the following.
+
+```
 - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
 - [dotenvx run --log-level](https://dotenvx.com/docs/advanced/run-log-level.html): Set `--log-level` to whatever you wish.
 - [dotenvx run --env HELLO=String](https://dotenvx.com/docs/advanced/run-overload.html): Override existing env variables. These can be variables already on your machine or variables loaded as files consecutively. The last variable seen will 'win'.
@@ -29,7 +33,7 @@ $ llmstxt gen https://dotenvx.com/sitemap.xml
 - [dotenvx run - Shell Expansion](https://dotenvx.com/docs/advanced/run-shell-expansion.html): Prevent your shell from expanding inline `$VARIABLES` before dotenvx has a chance to inject them. Use a subshell.
 ```
 
-Pipe it to `llms.txt` file.
+Pip it to `llms.txt` file.
 
 ```sh
 $ llmstxt gen https://dotenvx.com/sitemap.xml > llms.txt
