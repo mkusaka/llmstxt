@@ -11,16 +11,14 @@
 
 ### Quickstart [![npm version](https://img.shields.io/npm/v/llmstxt.svg)](https://www.npmjs.com/package/llmstxt)
 
-Install globally.
+Use as a cli:
 
 ```sh
 npm install llmstxt -g
-```
 
-```sh
 $ llmstxt gen https://dotenvx.com/sitemap.xml
 ```
-* <details><summary>example output</summary><br>
+<details><summary>view output example</summary><br>
 
   ```
   - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
@@ -31,7 +29,7 @@ $ llmstxt gen https://dotenvx.com/sitemap.xml
   ...
   ```
 
-  </details>
+</details>
 
 To save, pipe it to `llms.txt`:
 
