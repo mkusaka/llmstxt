@@ -6,14 +6,9 @@
 
 ### Quickstart [![npm version](https://img.shields.io/npm/v/llmstxt.svg)](https://www.npmjs.com/package/llmstxt)
 
-Install:
-
 ```sh
-npm install llmstxt -g
+$ npm install llmstxt -g
 ```
-
-Use as a cli:
-
 ```sh
 $ llmstxt gen https://dotenvx.com/sitemap.xml
 ```
