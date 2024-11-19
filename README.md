@@ -11,16 +11,22 @@
 
 ### Quickstart [![npm version](https://img.shields.io/npm/v/llmstxt.svg)](https://www.npmjs.com/package/llmstxt)
 
-Use as a cli:
+Install:
 
 ```sh
 npm install llmstxt -g
+```
 
+Use as a cli:
+
+```sh
 $ llmstxt gen https://dotenvx.com/sitemap.xml
 ```
-<details><summary>view output example</summary><br>
+
+* <details><summary>expand example</summary><br>
 
   ```
+  $ llmstxt gen https://dotenvx.com/sitemap.xml
   - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
   - [dotenvx run --log-level](https://dotenvx.com/docs/advanced/run-log-level.html): Set `--log-level` to whatever you wish.
   - [dotenvx run --env HELLO=String](https://dotenvx.com/docs/advanced/run-overload.html): Override existing env variables. These can be variables already on your machine or variables loaded as files consecutively. The last variable seen will 'win'.
@@ -31,16 +37,37 @@ $ llmstxt gen https://dotenvx.com/sitemap.xml
 
 </details>
 
-To save, pipe it to `llms.txt`:
+## Basics
 
-```sh
-$ llmstxt gen https://dotenvx.com/sitemap.xml > llms.txt
-# replace with your sitemap url
-```
+> Basic usage
+>
+
+* <details><summary>`gen https://yoursite.com/sitemap.xml`</summary><br>
+
+  Outputs to stdout.
+
+  ```sh
+  $ llmstxt gen https://dotenvx.com/sitemap.xml
+  - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
+  - [dotenvx run --log-level](https://dotenvx.com/docs/advanced/run-log-level.html): Set `--log-level` to whatever you wish.
+  - [dotenvx run --quiet](https://dotenvx.com/docs/advanced/run-quiet.html): Use `--quiet` to suppress all output (except errors).
+  ...
+  ```
+
+  </details>
+* <details><summary>`gen https://yoursite.com/sitemap.xml > llms.txt`</summary><br>
+
+  Write to file.
+
+  ```sh
+  $ llmstxt gen https://dotenvx.com/sitemap.xml > llms.txt
+  ```
+
+  </details>
 
 ## Advanced
 
-> Customize generation.
+> Advanced options
 >
 
 * <details><summary>`gen --exclude-path` - Exclude path(s)</summary><br>
