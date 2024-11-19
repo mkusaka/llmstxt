@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "name": "llmstxt",
-  "description": "convert sitemap to llms.txt file",
+  "description": "convert `sitemap.xml` to `llms.txt`",
   "author": "@motdotla",
   "keywords": [
     "llms.txt",
