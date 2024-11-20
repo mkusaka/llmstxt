@@ -26,6 +26,8 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
 
 </details>
 
+&nbsp;
+
 ## Basics
 
 > Basic usage
@@ -53,6 +55,8 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
   ```
 
   </details>
+
+&nbsp;
 
 ## Advanced
 
