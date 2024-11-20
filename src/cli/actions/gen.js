@@ -1,13 +1,11 @@
+const { URL } = require('url')
 const cheerio = require('cheerio')
 const picomatch = require('picomatch')
 const { request } = require('undici')
 const Sitemapper = require('sitemapper')
-const Turndown = require('turndown')
-
 const sitemap = new Sitemapper()
-const turndown = new Turndown()
 
-async function fetchHtml(url) {
+async function fetchHtml (url) {
   try {
     const { body } = await request(url)
     const rawHtml = await body.text()
@@ -17,7 +15,7 @@ async function fetchHtml(url) {
   }
 }
 
-async function getTitle(html) {
+async function getTitle (html) {
   try {
     const $ = cheerio.load(html)
     return $('head > title').text().trim()
@@ -26,7 +24,7 @@ async function getTitle(html) {
   }
 }
 
-async function getDescription(html) {
+async function getDescription (html) {
   try {
     const $ = cheerio.load(html)
 
@@ -49,7 +47,7 @@ async function getDescription(html) {
   }
 }
 
-function parseSubstitutionCommand(command) {
+function parseSubstitutionCommand (command) {
   const match = command.match(/^s\/(.*?)\/(.*?)\/([gimsuy]*)$/) // Capture optional flags
 
   if (match) {
@@ -58,11 +56,21 @@ function parseSubstitutionCommand(command) {
     const flags = match[3] || '' // Extract flags (e.g., 'g', 'i')
     return { pattern: new RegExp(pattern, flags), replacement }
   } else {
-    throw new Error("Invalid substitution command format")
+    throw new Error('Invalid substitution command format')
   }
 }
 
-function substituteTitle(title, command) {
+function parseSection(uri) {
+  try {
+    const url = new URL(uri)
+    const segments = url.pathname.split('/').filter(Boolean)
+    return segments[0] || 'ROOT'
+  } catch (_error) {
+    return 'ROOT'
+  }
+}
+
+function substituteTitle (title, command) {
   if (!command || command.length < 1 || !command.startsWith('s/')) {
     return title
   }
@@ -70,6 +78,23 @@ function substituteTitle(title, command) {
   const { pattern, replacement } = parseSubstitutionCommand(command)
 
   return title.replace(pattern, replacement)
+}
+
+function isRootUrl (uri) {
+  try {
+    const url = new URL(uri)
+    return url.pathname === '/'
+  } catch (_error) {
+    return false
+  }
+}
+
+function capitalizeString(str) {
+  if (!str || typeof str !== 'string') {
+    return ''
+  }
+
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
 async function gen (sitemapUrl) {
@@ -84,7 +109,7 @@ async function gen (sitemapUrl) {
   // replaceTitle logic
   const replaceTitle = options.replaceTitle || []
 
-  let lines = []
+  const sections = {}
 
   try {
     const sites = await sitemap.fetch(sitemapUrl)
@@ -100,6 +125,7 @@ async function gen (sitemapUrl) {
         continue
       }
 
+      // html
       const html = await fetchHtml(url)
       if (!html) {
         continue
@@ -118,15 +144,51 @@ async function gen (sitemapUrl) {
       // description
       const description = await getDescription(html)
 
-      lines.push(`- [${title}](${url}): ${description}`)
+      const line = {
+        title,
+        url,
+        description
+      }
+
+      // set up section
+      const section = parseSection(url)
+      sections[section] ||= []
+
+      // add line
+      sections[section].push(line)
+
     }
   } catch (error) {
-    console.error(`Error processing sitemap:`, error.message)
+    console.error('Error processing sitemap:', error.message)
   }
 
-  const md = lines.join('\n')
+  let output = ''
 
-  console.log(md)
+  // handle root
+  const root = sections.ROOT
+  delete sections.ROOT
+
+  output += `# ${options.title || root[0].title}`
+  output += '\n'
+  output += '\n'
+  output += `> ${options.description || root[0].description}`
+  output += '\n'
+  output += '\n'
+
+  // handle sections
+  for (const section in sections) {
+    output += `## ${capitalizeString(section)}`
+    output += '\n'
+    for (const line of sections[section]) {
+      const { title, url, description } = line
+      output += '\n'
+      output += `- [${title}](${url}): ${description}`
+    }
+    output += '\n'
+    output += '\n'
+  }
+
+  console.log(output)
 }
 
 module.exports = gen

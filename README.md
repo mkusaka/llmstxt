@@ -95,6 +95,24 @@ $ npx llmstxt gen https://dotenvx.com/sitemap.xml
   ```
 
   </details>
+* <details><summary>`gen --title 'Your Heading'` - set title</summary><br>
+
+  Set your website's heading 1 title.
+
+  ```sh
+  $ llmstxt gen https://dotenvx.com/sitemap.xml --title 'dotenvx'
+  ```
+
+  </details>
+* <details><summary>`gen --description 'Some description'` - set description</summary><br>
+
+  Set your website's description.
+
+  ```sh
+  $ llmstxt gen https://dotenvx.com/sitemap.xml --description 'This is a description' 
+  ```
+
+  </details>
 
 &nbsp;
 
