@@ -4,6 +4,7 @@ const picomatch = require('picomatch')
 const { request } = require('undici')
 const Sitemapper = require('sitemapper')
 const sitemap = new Sitemapper()
+const ora = require('ora')
 
 async function fetchHtml (url) {
   try {
@@ -100,6 +101,8 @@ function capitalizeString(str) {
 async function gen (sitemapUrl) {
   const options = this.opts()
 
+  const spinner = ora('generating').start()
+
   // include/exclude logic
   const excludePaths = options.excludePath || []
   const includePaths = options.includePath || []
@@ -112,9 +115,12 @@ async function gen (sitemapUrl) {
   const sections = {}
 
   try {
+    spinner.text = sitemapUrl
     const sites = await sitemap.fetch(sitemapUrl)
 
     for (const url of sites.sites) {
+      spinner.text = url
+
       // path excluded - don't process it
       if (isExcluded(url)) {
         continue
@@ -156,7 +162,6 @@ async function gen (sitemapUrl) {
 
       // add line
       sections[section].push(line)
-
     }
   } catch (error) {
     console.error('Error processing sitemap:', error.message)
@@ -175,6 +180,8 @@ async function gen (sitemapUrl) {
   output += '\n'
   output += '\n'
 
+  spinner.text = options.title || root[0].title
+
   // handle sections
   for (const section in sections) {
     output += `## ${capitalizeString(section)}`
@@ -183,10 +190,13 @@ async function gen (sitemapUrl) {
       const { title, url, description } = line
       output += '\n'
       output += `- [${title}](${url}): ${description}`
+
+      spinner.text = title
     }
     output += '\n'
     output += '\n'
   }
+  spinner.succeed('generated')
 
   console.log(output)
 }
