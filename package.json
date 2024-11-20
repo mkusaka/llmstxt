@@ -29,6 +29,7 @@
   "dependencies": {
     "cheerio": "^1.0.0",
     "commander": "^11.1.0",
+    "ora": "^5.4.1",
     "picomatch": "^4.0.2",
     "replace-in-file": "^8.2.0",
     "sitemapper": "^3.2.18",
