@@ -1,6 +1,5 @@
-# llmstxt
-
-*generate `llms.txt`*–using your `sitemap.xml`.
+![](./llmstxt.gif)
+> *generate `llms.txt`*–using your `sitemap.xml`.
 
 &nbsp;
 
