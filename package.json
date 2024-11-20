@@ -23,8 +23,7 @@
   },
   "scripts": {
     "standard": "standard",
-    "standard:fix": "standard --fix",
-    "release": "standard-version"
+    "standard:fix": "standard --fix"
   },
   "funding": "https://dotenvx.com",
   "dependencies": {
@@ -35,5 +34,8 @@
     "sitemapper": "^3.2.18",
     "turndown": "^7.2.0",
     "undici": "^6.21.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
   }
 }
