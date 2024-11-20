@@ -123,5 +123,5 @@ $ npx llmstxt gen https://dotenvx.com/sitemap.xml
 I'm using it to generate [dotenvx.com/llms.txt](https://dotenvx.com/llms.txt) with the following command:
 
 ```sh
-npx llmstxt gen https://dotenvx.com/sitemap.xml -ep "**/privacy**" -ep "**/terms**" -ep "**/blog/**" -ep "**/stats/**" -ep "**/support/**" -rt 's/\| dotenvx//' > llms.txt
+npx llmstxt gen https://dotenvx.com/sitemap.xml -ep "**/privacy**" -ep "**/terms**" -ep "**/blog/**" -ep "**/stats/**" -ep "**/support/**" -rt 's/\| dotenvx//' -t 'dotenvx' > llms.txt
 ```
