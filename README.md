@@ -1,5 +1,8 @@
-![](./llmstxt.gif)
+# llmstxt
+
 > *generate `llms.txt`*–using your `sitemap.xml`.
+
+<p align="center"><br><img src="llmstxt.gif" width="500"><br></p>
 
 &nbsp;
 
