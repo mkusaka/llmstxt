@@ -9,13 +9,13 @@
 ### Quickstart [![npm version](https://img.shields.io/npm/v/llmstxt.svg)](https://www.npmjs.com/package/llmstxt)
 
 ```sh
-$ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
+$ npx -y llmstxt gen https://vercel.com/sitemap.xml
 ```
 
 * <details><summary>expand example</summary><br>
 
   ```
-  $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
+  $ npx -y llmstxt gen https://vercel.com/sitemap.xml
   - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
   - [dotenvx run --log-level](https://dotenvx.com/docs/advanced/run-log-level.html): Set `--log-level` to whatever you wish.
   - [dotenvx run --env HELLO=String](https://dotenvx.com/docs/advanced/run-overload.html): Override existing env variables. These can be variables already on your machine or variables loaded as files consecutively. The last variable seen will 'win'.
@@ -38,7 +38,7 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
   Outputs to stdout.
 
   ```sh
-  $ llmstxt gen https://dotenvx.com/sitemap.xml
+  $ llmstxt gen https://vercel.com/sitemap.xml
   - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
   - [dotenvx run --log-level](https://dotenvx.com/docs/advanced/run-log-level.html): Set `--log-level` to whatever you wish.
   - [dotenvx run --quiet](https://dotenvx.com/docs/advanced/run-quiet.html): Use `--quiet` to suppress all output (except errors).
@@ -51,7 +51,7 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
   Write to file.
 
   ```sh
-  $ llmstxt gen https://dotenvx.com/sitemap.xml > llms.txt
+  $ llmstxt gen https://vercel.com/sitemap.xml > llms.txt
   ```
 
   </details>
@@ -69,13 +69,10 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
 
   ```sh
   # exclude all blog posts
-  $ llmstxt gen https://dotenvx.com/sitemap.xml --exclude-path "**/blog/**"
+  $ llmstxt gen https://vercel.com/sitemap.xml --exclude-path "**/blog/**"
 
   # exclude all docs
-  $ llmstxt gen https://dotenvx.com/sitemap.xml --exclude-path "**/docs/**"
-
-  # exclude privacy and terms
-  $ llmstxt gen https://dotenvx.com/sitemap.xml -ep "**/privacy**" -ep "**/terms**"
+  $ llmstxt gen https://vercel.com/sitemap.xml --exclude-path "**/docs/**"
   ```
 
   </details>
@@ -85,10 +82,10 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
 
   ```sh
   # include all docs only
-  $ llmstxt gen https://dotenvx.com/sitemap.xml --include-path "**/docs/**"
+  $ llmstxt gen https://vercel.com/sitemap.xml --include-path "**/docs/**"
 
   # include all blogs only
-  $ llmstxt gen https://dotenvx.com/sitemap.xml -ip "**/blog/**"
+  $ llmstxt gen https://vercel.com/sitemap.xml -ip "**/blog/**"
   ```
 
   </details>
@@ -97,7 +94,7 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
   Use `--replace-title` to remove redundant text from your page titles. For example, dotenvx's titles all end with `| dotenvx`. I want to replace those with empty string.
 
   ```sh
-  $ llmstxt gen https://dotenvx.com/sitemap.xml --replace-title 's/\| dotenvx//'
+  $ llmstxt gen https://vercel.com/sitemap.xml --replace-title 's/\| dotenvx//'
   ```
 
   </details>
@@ -106,7 +103,7 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
   Set your website's heading 1 title.
 
   ```sh
-  $ llmstxt gen https://dotenvx.com/sitemap.xml --title 'dotenvx'
+  $ llmstxt gen https://vercel.com/sitemap.xml --title 'dotenvx'
   ```
 
   </details>
@@ -115,7 +112,7 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
   Set your website's description.
 
   ```sh
-  $ llmstxt gen https://dotenvx.com/sitemap.xml --description 'This is a description' 
+  $ llmstxt gen https://vercel.com/sitemap.xml --description 'This is a description' 
   ```
 
   </details>
@@ -129,5 +126,5 @@ $ npx -y llmstxt gen https://dotenvx.com/sitemap.xml
 I'm using it to generate [dotenvx.com/llms.txt](https://dotenvx.com/llms.txt) with the following command:
 
 ```sh
-npx -y llmstxt@latest gen https://dotenvx.com/sitemap.xml -ep "**/privacy**" -ep "**/terms**" -ep "**/blog/**" -ep "**/stats/**" -ep "**/support/**" -rt 's/\| dotenvx//' -t 'dotenvx' > llms.txt
+npx -y llmstxt@latest gen https://example.com/sitemap.xml -ep "**/privacy**" -ep "**/terms**" -ep "**/blog/**" -ep "**/stats/**" -ep "**/support/**" -rt 's/\| dotenvx//' -t 'dotenvx' > llms.txt
 ```
