@@ -16,11 +16,13 @@ $ npx -y llmstxt gen https://vercel.com/sitemap.xml
 
   ```
   $ npx -y llmstxt gen https://vercel.com/sitemap.xml
-  - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
-  - [dotenvx run --log-level](https://dotenvx.com/docs/advanced/run-log-level.html): Set `--log-level` to whatever you wish.
-  - [dotenvx run --env HELLO=String](https://dotenvx.com/docs/advanced/run-overload.html): Override existing env variables. These can be variables already on your machine or variables loaded as files consecutively. The last variable seen will 'win'.
-  - [dotenvx run --quiet](https://dotenvx.com/docs/advanced/run-quiet.html): Use `--quiet` to suppress all output (except errors).
-  - [dotenvx run - Shell Expansion](https://dotenvx.com/docs/advanced/run-shell-expansion.html): Prevent your shell from expanding inline `$VARIABLES` before dotenvx has a chance to inject them. Use a subshell.
+  - [Vercel Documentation](https://vercel.com/docs): Vercel's Frontend Cloud gives developers frameworks, workflows, and infrastructure to build a faster, more personalized web
+  - [Accounts on Vercel](https://vercel.com/docs/accounts): Learn how to manage your Vercel account and team members.
+  - [Create a Team](https://vercel.com/docs/accounts/create-a-team): Teams on Vercel allow you to collaborate with members on projects, and grant you access to additional resources. Learn how to create or join a team on Vercel.
+  - [Create an Account](https://vercel.com/docs/accounts/create-an-account): Learn how to create a Hobby team on Vercel and manage your login connections through your dashboard.
+  - [Manage Emails](https://vercel.com/docs/accounts/manage-emails): Learn how to manage your email addresses on Vercel.
+  - [Account Plans on Vercel](https://vercel.com/docs/accounts/plans): Learn about the different plans available on Vercel.
+  - [Vercel Enterprise Plan](https://vercel.com/docs/accounts/plans/enterprise): Learn about the Enterprise plan for Vercel, including features, pricing, and more.
   ...
   ```
 
@@ -39,9 +41,13 @@ $ npx -y llmstxt gen https://vercel.com/sitemap.xml
 
   ```sh
   $ llmstxt gen https://vercel.com/sitemap.xml
-  - [dotenvx run -f](https://dotenvx.com/docs/advanced/run-f.html): Compose multiple .env files for environment variables loading, as you need.
-  - [dotenvx run --log-level](https://dotenvx.com/docs/advanced/run-log-level.html): Set `--log-level` to whatever you wish.
-  - [dotenvx run --quiet](https://dotenvx.com/docs/advanced/run-quiet.html): Use `--quiet` to suppress all output (except errors).
+  - [Vercel Documentation](https://vercel.com/docs): Vercel's Frontend Cloud gives developers frameworks, workflows, and infrastructure to build a faster, more personalized web
+  - [Accounts on Vercel](https://vercel.com/docs/accounts): Learn how to manage your Vercel account and team members.
+  - [Create a Team](https://vercel.com/docs/accounts/create-a-team): Teams on Vercel allow you to collaborate with members on projects, and grant you access to additional resources. Learn how to create or join a team on Vercel.
+  - [Create an Account](https://vercel.com/docs/accounts/create-an-account): Learn how to create a Hobby team on Vercel and manage your login connections through your dashboard.
+  - [Manage Emails](https://vercel.com/docs/accounts/manage-emails): Learn how to manage your email addresses on Vercel.
+  - [Account Plans on Vercel](https://vercel.com/docs/accounts/plans): Learn about the different plans available on Vercel.
+  - [Vercel Enterprise Plan](https://vercel.com/docs/accounts/plans/enterprise): Learn about the Enterprise plan for Vercel, including features, pricing, and more.
   ...
   ```
 
