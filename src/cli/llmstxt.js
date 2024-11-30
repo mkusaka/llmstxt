@@ -15,7 +15,7 @@ program
 const genAction = require('./actions/gen')
 program.command('gen')
   .description('generate llms.txt')
-  .argument('[url]', 'sitemap url', 'https://dotenvx.com/sitemap.xml')
+  .argument('[url]', 'sitemap url', 'https://vercel.com/sitemap.xml')
   .option('-ep, --exclude-path <excludePath...>', 'path(s) to exclude from generation (default: none)')
   .option('-ip, --include-path <includePath...>', 'path(s) to include from generation (default: all)')
   .option('-rt, --replace-title <replaceTitle...>', 'replace string(s) from title (default: none)')
