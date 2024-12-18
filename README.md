@@ -1,6 +1,6 @@
 # llmstxt
 
-> *generate `llms.txt`*–using your `sitemap.xml`.
+> *generate `llms.txt`*–using your `sitemap.xml`. A `llms.txt` file is a curated list of your website's pages in markdown format, perfect for training or fine-tuning language models with your content.
 
 <p align="center"><br><img src="llmstxt.gif" width="500"><br></p>
 
