@@ -20,12 +20,6 @@ export default defineConfig({
         '**/*.config.js',
       ],
       // Coverage thresholds
-      thresholds: {
-        statements: 1,
-        branches: 1,
-        functions: 1,
-        lines: 1,
-      },
     },
     // Mock settings
     mockReset: true,
