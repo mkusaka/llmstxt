@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 
-// コンソール出力をモック
+// Mock console output
 const originalConsoleLog = console.log
 beforeEach(() => {
   console.log = vi.fn()
@@ -11,12 +11,12 @@ afterEach(() => {
   vi.resetAllMocks()
 })
 
-// モックgen関数のインポート
+// Import mock gen function
 import gen from './mock-gen'
 
 describe('gen command', () => {
   it('should generate llms.txt with default options', async () => {
-    // コマンドオプションのモック
+    // Mock command options
     const options = {
       opts: () => ({})
     }
@@ -38,7 +38,7 @@ describe('gen command', () => {
   })
 
   it('should exclude paths based on exclude-path option', async () => {
-    // コマンドオプションのモック
+    // Mock command options
     const options = {
       opts: () => ({
         excludePath: ['**/blog/**']
@@ -59,7 +59,7 @@ describe('gen command', () => {
   })
 
   it('should include only specified paths based on include-path option', async () => {
-    // コマンドオプションのモック
+    // Mock command options
     const options = {
       opts: () => ({
         includePath: ['**/about']
@@ -81,7 +81,7 @@ describe('gen command', () => {
   })
 
   it('should replace title based on replace-title option', async () => {
-    // コマンドオプションのモック
+    // Mock command options
     const options = {
       opts: () => ({
         replaceTitle: ['s/\\| Example Website//']
@@ -102,7 +102,7 @@ describe('gen command', () => {
   })
 
   it('should use custom title and description when provided', async () => {
-    // コマンドオプションのモック
+    // Mock command options
     const options = {
       opts: () => ({
         title: 'Custom Title',

@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { fetchHtml, getTitle, getDescription } from '../utils'
 
-// テスト用のHTMLファイルを読み込む
+// Load HTML files for testing
 const homeHtml = fs.readFileSync(path.resolve(process.cwd(), 'tests/fixtures/html/home.html'), 'utf8')
 const aboutHtml = fs.readFileSync(path.resolve(process.cwd(), 'tests/fixtures/html/about.html'), 'utf8')
 

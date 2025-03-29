@@ -2,15 +2,15 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
-    // テストのグローバル設定
+    // Global test settings
     environment: 'node',
     include: ['tests/**/*.test.js'],
     exclude: ['**/node_modules/**', '**/dist/**'],
-    // タイムアウト設定（ミリ秒）
+    // Timeout settings (milliseconds)
     timeout: 10000,
-    // 並列実行設定
+    // Parallel execution settings
     threads: true,
-    // カバレッジ設定
+    // Coverage settings
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
@@ -19,7 +19,7 @@ export default defineConfig({
         'tests/**',
         '**/*.config.js',
       ],
-      // カバレッジ閾値
+      // Coverage thresholds
       thresholds: {
         statements: 70,
         branches: 70,
@@ -27,7 +27,7 @@ export default defineConfig({
         lines: 70,
       },
     },
-    // モック設定
+    // Mock settings
     mockReset: true,
   },
 })

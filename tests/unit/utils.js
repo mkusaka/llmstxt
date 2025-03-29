@@ -1,9 +1,9 @@
-// テスト用のユーティリティ関数
+// Utility functions for testing
 
 /**
- * 文字列の最初の文字を大文字に、残りを小文字に変換する
- * @param {string} str 変換する文字列
- * @returns {string} 変換された文字列
+ * Capitalize the first letter of a string and convert the rest to lowercase
+ * @param {string} str String to convert
+ * @returns {string} Converted string
  */
 export function capitalizeString(str) {
   if (!str || typeof str !== 'string') {
@@ -14,9 +14,9 @@ export function capitalizeString(str) {
 }
 
 /**
- * URLがルートURLかどうかを判定する
- * @param {string} uri 判定するURL
- * @returns {boolean} ルートURLの場合はtrue
+ * Check if a URL is a root URL
+ * @param {string} uri URL to check
+ * @returns {boolean} true if it's a root URL
  */
 export function isRootUrl(uri) {
   try {
@@ -28,9 +28,9 @@ export function isRootUrl(uri) {
 }
 
 /**
- * URLからセクション名を抽出する
+ * Extract section name from URL
  * @param {string} uri URL
- * @returns {string} セクション名
+ * @returns {string} Section name
  */
 export function parseSection(uri) {
   try {
@@ -43,9 +43,9 @@ export function parseSection(uri) {
 }
 
 /**
- * 置換コマンドをパースする
- * @param {string} command 置換コマンド（例: s/pattern/replacement/g）
- * @returns {object} パースされた置換コマンド
+ * Parse substitution command
+ * @param {string} command Substitution command (e.g., s/pattern/replacement/g)
+ * @returns {object} Parsed substitution command
  */
 export function parseSubstitutionCommand(command) {
   const match = command.match(/^s\/(.*?)\/(.*?)\/([gimsuy]*)$/)
@@ -61,10 +61,10 @@ export function parseSubstitutionCommand(command) {
 }
 
 /**
- * タイトルを置換する
- * @param {string} title タイトル
- * @param {string} command 置換コマンド
- * @returns {string} 置換されたタイトル
+ * Substitute title using a substitution command
+ * @param {string} title Title
+ * @param {string} command Substitution command
+ * @returns {string} Substituted title
  */
 export function substituteTitle(title, command) {
   if (!command || command.length < 1 || !command.startsWith('s/')) {
@@ -72,7 +72,7 @@ export function substituteTitle(title, command) {
   }
 
   try {
-    // 特殊なケースの処理
+    // Handle special case
     if (command === 's/\\| Company//') {
       return 'Product '
     }
@@ -85,9 +85,9 @@ export function substituteTitle(title, command) {
 }
 
 /**
- * HTMLからタイトルを抽出する（モック用）
+ * Extract title from HTML (for mocking)
  * @param {string} html HTML
- * @returns {Promise<string|null>} タイトル
+ * @returns {Promise<string|null>} Title
  */
 export async function getTitle(html) {
   try {
@@ -99,9 +99,9 @@ export async function getTitle(html) {
 }
 
 /**
- * HTMLから説明を抽出する（モック用）
+ * Extract description from HTML (for mocking)
  * @param {string} html HTML
- * @returns {Promise<string|null>} 説明
+ * @returns {Promise<string|null>} Description
  */
 export async function getDescription(html) {
   try {
@@ -130,13 +130,13 @@ export async function getDescription(html) {
 }
 
 /**
- * HTMLを取得する（モック用）
+ * Fetch HTML (for mocking)
  * @param {string} url URL
  * @returns {Promise<string|null>} HTML
  */
 export async function fetchHtml(url) {
   try {
-    // このモック関数は実際にはHTTPリクエストを行わない
+    // This mock function doesn't actually make HTTP requests
     return `<!DOCTYPE html>
 <html>
 <head>

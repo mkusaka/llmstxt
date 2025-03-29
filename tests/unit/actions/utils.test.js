@@ -7,7 +7,7 @@ import {
   substituteTitle
 } from '../utils'
 
-// テスト
+// Tests
 describe('capitalizeString', () => {
   it('should capitalize the first letter and lowercase the rest', () => {
     expect(capitalizeString('hello')).toBe('Hello')
@@ -85,7 +85,7 @@ describe('parseSubstitutionCommand', () => {
 describe('substituteTitle', () => {
   it('should substitute patterns in the title', () => {
     expect(substituteTitle('Hello World', 's/World/Universe/')).toBe('Hello Universe')
-    // 特殊なケースのテスト
+    // Test for special case
     expect(substituteTitle('Product | Company', 's/\\| Company//')).toBe('Product ')
   })
 

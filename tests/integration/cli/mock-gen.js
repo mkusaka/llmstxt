@@ -1,15 +1,15 @@
-// gen.jsのモック実装
+// Mock implementation of gen.js
 import { fetchHtml, getTitle, getDescription } from '../../unit/utils'
 
 /**
- * モック用のgen関数
- * @param {string} sitemapUrl サイトマップURL
+ * Mock gen function for testing
+ * @param {string} sitemapUrl Sitemap URL
  * @returns {Promise<void>}
  */
 async function gen(sitemapUrl) {
   const options = this.opts()
 
-  // モックサイトマップデータ
+  // Mock sitemap data
   const sites = {
     sites: [
       'https://example.com/',
