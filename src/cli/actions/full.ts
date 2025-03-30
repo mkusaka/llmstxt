@@ -3,7 +3,7 @@ import cheerio from 'cheerio';
 import picomatch from 'picomatch';
 import { request } from 'undici';
 import Sitemapper from 'sitemapper';
-import ora from 'ora';
+import * as ora from 'ora';
 import TurndownService from 'turndown';
 
 const sitemap = new Sitemapper({ timeout: 15000 });
@@ -149,22 +149,8 @@ function isRootUrl(uri: string): boolean {
 async function full(this: FullOptions, sitemapUrl: string): Promise<void> {
   const options = this.opts();
 
-  // Create spinner with null check for testing environments
-  const spinner = {
-    text: '',
-    succeed: (text?: string) => {}
-  };
-  
-  try {
-    // Only use ora if it's available and we're not in a test environment
-    if (typeof ora === 'function') {
-      const oraSpinner = ora('generating llms-full.txt').start();
-      spinner.text = oraSpinner.text;
-      spinner.succeed = oraSpinner.succeed.bind(oraSpinner);
-    }
-  } catch (error) {
-    // Silently fail if ora is not available
-  }
+  // Create spinner
+  const spinner = ora.default('generating llms-full.txt').start();
 
   // include/exclude logic
   const excludePaths = options.excludePath || [];
