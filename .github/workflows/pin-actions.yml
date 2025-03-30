@@ -1,0 +1,22 @@
+name: Pin GitHub Actions
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+jobs:
+  pinact:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@83b7061638ee4956cf7545a6f7efe594e5ad0247 # v4.2.2
+        with:
+          persist-credentials: false
+      
+      - name: Pin actions
+        uses: suzuki-shunsuke/pinact-action@49cbd6acd0dbab6a6be2585d1dbdaa43b4410133 # v1.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
