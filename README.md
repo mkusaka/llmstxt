@@ -1,3 +1,4 @@
+# Pin GitHub Actions versions using pinact
 # llmstxt
 
 > *generate `llms.txt` and `llms-full.txt`*–using your `sitemap.xml`. A `llms.txt` file is a curated list of your website's pages in markdown format, and `llms-full.txt` includes the full content of each page, perfect for training or fine-tuning language models with your content.
