@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     // Global test settings
     environment: 'node',
-    include: ['tests/**/*.test.js'],
+    include: ['tests/**/*.test.{js,ts}'],
     exclude: ['**/node_modules/**', '**/dist/**'],
     // Timeout settings (milliseconds)
     timeout: 10000,
@@ -17,7 +17,7 @@ export default defineConfig({
       exclude: [
         'node_modules/**',
         'tests/**',
-        '**/*.config.js',
+        '**/*.config.{js,ts}',
       ],
       // Coverage thresholds
     },

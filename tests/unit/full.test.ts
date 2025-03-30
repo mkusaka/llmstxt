@@ -1,12 +1,12 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import fullAction from '../../src/cli/actions/full.cjs'
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import fullAction from '../../src/cli/actions/full';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Get directory name in ESM
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Mock dependencies
 vi.mock('undici', () => {
@@ -30,8 +30,8 @@ vi.mock('undici', () => {
         `)
       }
     })
-  }
-})
+  };
+});
 
 vi.mock('sitemapper', () => {
   return {
@@ -43,10 +43,10 @@ vi.mock('sitemapper', () => {
             'https://example.com/page1'
           ]
         })
-      }
+      };
     })
-  }
-})
+  };
+});
 
 vi.mock('ora', () => {
   return {
@@ -55,25 +55,25 @@ vi.mock('ora', () => {
         start: vi.fn().mockReturnThis(),
         text: '',
         succeed: vi.fn()
-      }
+      };
     })
-  }
-})
+  };
+});
 
 describe('full action', () => {
-  let consoleSpy
+  let consoleSpy: any;
   
   beforeEach(() => {
-    consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
-  })
+    consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+  });
   
   afterEach(() => {
-    vi.clearAllMocks()
-  })
+    vi.clearAllMocks();
+  });
   
   it('should be a function', () => {
-    expect(typeof fullAction).toBe('function')
-  })
+    expect(typeof fullAction).toBe('function');
+  });
   
   it('should handle options correctly', async () => {
     const mockOpts = {
@@ -82,24 +82,24 @@ describe('full action', () => {
       replaceTitle: ['s/| Test//'],
       title: 'Custom Title',
       description: 'Custom Description'
-    }
+    };
     
-    const action = fullAction.bind({ opts: () => mockOpts })
-    await action('https://example.com/sitemap.xml')
+    const action = fullAction.bind({ opts: () => mockOpts });
+    await action('https://example.com/sitemap.xml');
     
-    expect(consoleSpy).toHaveBeenCalled()
+    expect(consoleSpy).toHaveBeenCalled();
     
     // Check that the output contains the custom title and description
-    const output = consoleSpy.mock.calls[0][0]
-    expect(output).toContain('# Custom Title')
-    expect(output).toContain('> Custom Description')
-  })
+    const output = consoleSpy.mock.calls[0][0];
+    expect(output).toContain('# Custom Title');
+    expect(output).toContain('> Custom Description');
+  });
   
   it('should generate output in the correct format', async () => {
     // Mock the output directly for this test
-    consoleSpy.mockImplementation((output) => {
+    consoleSpy.mockImplementation((output: string) => {
       // This is just to capture the call
-    })
+    });
     
     const mockOpts = {
       excludePath: [],
@@ -107,10 +107,10 @@ describe('full action', () => {
       replaceTitle: [],
       title: 'Test Website',
       description: 'Test website description'
-    }
+    };
     
-    const action = fullAction.bind({ opts: () => mockOpts })
-    await action('https://example.com/sitemap.xml')
+    const action = fullAction.bind({ opts: () => mockOpts });
+    await action('https://example.com/sitemap.xml');
     
     // Manually create the expected output format
     const expectedOutput = `# Test Website
@@ -126,12 +126,12 @@ Test Content
 
 Test paragraph
 
-`
+`;
     
     // Directly check if console.log was called
-    expect(consoleSpy).toHaveBeenCalled()
+    expect(consoleSpy).toHaveBeenCalled();
     
     // Skip the detailed content check since we're mocking
     // Just verify the function was called
-  })
-})
+  });
+});
