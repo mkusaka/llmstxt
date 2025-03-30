@@ -218,3 +218,4 @@ Use the `full` command:
 ```sh
 npx -y llmstxt@latest full https://example.com/sitemap.xml -ep "**/privacy**" -ep "**/terms**" -rt 's/\| dotenvx//' -t 'dotenvx' > llms-full.txt
 ```
+# Additional information about pinact
