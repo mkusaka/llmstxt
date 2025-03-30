@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 
-const { Command } = require('commander')
-const program = new Command()
+import { Command } from 'commander';
+import packageJson from '../lib/helpers/packageJson';
+import genAction from './actions/gen';
+import fullAction from './actions/full';
 
-const packageJson = require('./../lib/helpers/packageJson')
+const program = new Command();
 
 // cli
 program
   .name('llmstxt')
   .description(packageJson.description)
-  .version(packageJson.version)
+  .version(packageJson.version);
 
 // llmstxt gen
-const genAction = require('./actions/gen')
 program.command('gen')
   .description('generate llms.txt')
   .argument('[url]', 'sitemap url', 'https://vercel.com/sitemap.xml')
@@ -21,10 +22,9 @@ program.command('gen')
   .option('-rt, --replace-title <replaceTitle...>', 'replace string(s) from title (default: none)')
   .option('-t, --title <title>', 'set title (default: root page title)')
   .option('-d, --description <description>', 'set description (default: root page description)')
-  .action(genAction)
+  .action(genAction);
 
 // llmstxt full
-const fullAction = require('./actions/full.cjs')
 program.command('full')
   .description('generate llms-full.txt with complete page content')
   .argument('[url]', 'sitemap url', 'https://vercel.com/sitemap.xml')
@@ -33,6 +33,6 @@ program.command('full')
   .option('-rt, --replace-title <replaceTitle...>', 'replace string(s) from title (default: none)')
   .option('-t, --title <title>', 'set title (default: root page title)')
   .option('-d, --description <description>', 'set description (default: root page description)')
-  .action(fullAction)
+  .action(fullAction);
 
-program.parse()
+program.parse();
